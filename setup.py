@@ -2,10 +2,11 @@ from setuptools import setup
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+    long_description = long_description.replace('images/', 'https://raw.githubusercontent.com/Sch-Tomi/ism/master/images/')
 
 setup(
     name='ism',
-    version='1.0.0',
+    version='1.0.3',
     description='Interactive SSH menu',
     long_description_content_type='text/markdown',
     long_description=long_description,
