@@ -1,19 +1,17 @@
-
-from os import system
-import sys
-from signal import signal, SIGINT, SIGTERM
-from re import findall
-from pathlib import Path
-
 import questionary
-
+import sys
+from os import system
+from pathlib import Path
 from prompt_toolkit.styles import Style
+from re import findall
+from signal import signal, SIGINT, SIGTERM
+
 custom_style_fancy = Style([
-    ('question', 'bold'),               # question text
-    ('answer', 'fg:#f44336 bold'),      # submitted answer text behind the question
-    ('pointer', 'fg:#fc413a bold'),     # pointer used in select and checkbox prompts
-    ('highlighted', 'fg:#fc413a bold'), # pointed-at choice in select and checkbox prompts
-    ('selected', 'fg:#cc5454'),         # style for a selected item of a checkbox
+    ('question', 'bold'),  # question text
+    ('answer', 'fg:#f44336 bold'),  # submitted answer text behind the question
+    ('pointer', 'fg:#fc413a bold'),  # pointer used in select and checkbox prompts
+    ('highlighted', 'fg:#fc413a bold'),  # pointed-at choice in select and checkbox prompts
+    ('selected', 'fg:#cc5454'),  # style for a selected item of a checkbox
 ])
 
 
@@ -37,7 +35,7 @@ class ISM:
         self.hosts = list()
         self.parse_config(self.ssh_config_path)
         self.hosts.sort()
-    
+
     def parse_config(self, config_file_path):
         path = Path(config_file_path).expanduser()
         if path.exists():
@@ -62,26 +60,26 @@ class ISM:
                 else:
                     self.parse_config(self.ssh_config_path.parent / path)
 
-
     def run(self):
         selected_host = (
             questionary.select(
                 "Select a Host to connect",
                 choices=self.hosts,
                 style=custom_style_fancy,
-                qmark= ""
+                qmark=""
             ).ask()
         )
 
         system('ssh %s' % selected_host)
-    
+
     def shutdown(self):
         sys.exit(0)
-    
+
 
 def main():
     ism = ISM()
     ism.run()
+
 
 if __name__ == '__main__':
     main()
