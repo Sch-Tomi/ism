@@ -1,5 +1,6 @@
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
+[![PyPI Downloads][pypi-downloads]][pypi-downloads]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
@@ -130,3 +131,4 @@ Project Link: [https://github.com/Sch-Tomi/ism](https://github.com/Sch-Tomi/ism)
 [license-shield]: https://img.shields.io/github/license/Sch-Tomi/ism.svg?style=flat-square
 [license-url]: https://github.com/Sch-Tomi/ism/blob/master/LICENSE.txt
 [product-screenshot]: images/screenshot.gif
+[pypi-downloads]: https://img.shields.io/pypi/dm/ism?style=flat-square
